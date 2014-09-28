@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="PHP">
+        <CLASSES>
+          <root url="file://C:/wamp/bin/php/php5.5.12" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://C:/wamp/bin/php/php5.5.12" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="PHARS">
+        <CLASSES>
+          <root url="phar://C:/wamp/bin/php/php5.5.12/pharcommand.phar" />
+        </CLASSES>
+        <SOURCES>
+          <root url="phar://C:/wamp/bin/php/php5.5.12/pharcommand.phar" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="jQuery-2.0.0" level="application" />
+    <orderEntry type="library" name="angular-agility-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="angular-bootstrap-lightbox-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="angular-hotkeys-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="angular-protractor-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="angularjs-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="angular-spinner-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="angular-translate-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="angular-ui-bootstrap-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="angularfire-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="angularLocalStorage-DefinitelyTyped" level="application" />
+  </component>
+</module>
+
