@@ -7,7 +7,7 @@
             $http.get('http://localhost:63342/leerComics/index.php').success(function(data) {
             $scope.comics = data;
         });
-        $scope.orderProp = 'IDCOMIC'
+        $scope.orderProp = 'idComic'
     });
 })();
 
