@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="../../Downloads/leerComics.com.ar/leerComics.com.ar/js/jquery-1.10.2.min.js"></script>
+    <!-- Select -->
+    <script src="../../Downloads/leerComics.com.ar/leerComics.com.ar/js/bootstrap-select.js"></script>
+    <link href="../../Downloads/leerComics.com.ar/leerComics.com.ar/css/bootstrap-select.css" rel="stylesheet" media="screen" type="text/css">
+    <!-- Bootstrap -->
+    <script src="../../Downloads/leerComics.com.ar/leerComics.com.ar/js/bootstrap.js"></script>
+    <link href="../../Downloads/leerComics.com.ar/leerComics.com.ar/css/bootstrap.css" rel="stylesheet" media="screen" type="text/css">
+    <link href="../../Downloads/leerComics.com.ar/leerComics.com.ar/css/styles.css" rel="stylesheet" media="screen" type="text/css">
+</head>
+<script type="text/javascript">
+    var currentComic;
+    $(document).ready(function () {
+        $('.selectpicker').selectpicker({
+            'selectedText': 'cat'
+        });
+        var go =$('#go');
+        go.click(function(){
+            $('.comic').css('display','none');
+            var values =$('.selectpicker').val();
+            if (values.length!=0){
+                for (var i=0;i<values.length;i++){
+                    var comic = parseInt(values[i]);
+                    $('#'+comic).css('display','block');
+                }
+            }
+        });
+        go.trigger('click');
+
+        $('a').click(function(){
+            currentComic = $(this).attr('id');
+            $("#title").append($(this).html());
+            $('#comicSrc').attr( 'src', function ( i, val ) { return val; });
+        });
+    });
+</script>
+<body>
+<div class="container">
+<!-- Informacion del Arco -->
+<h1>Arco Dias del Futuro Pasado (1981)</h1>
+<div class="row">
+    <div class="col-lg-2">
+        <img src="http://static2.wikia.nocookie.net/__cb20070304035512/marveldatabase/images/thumb/f/f4/Earth-811.jpg/250px-Earth-811.jpg" class="thumbnail img-responsive">
+    </div>
+    <div class="col-lg-9">
+        <h3>Sinopsis:</h3>
+        <p style="text-align:justify;">La trama de Días del futuro pasado avanza en dos líneas temporales distintas. Por un lado, en el presente, los X-Men se enfrentan a la Hermandad de mutantes diabólicos, liderada por Mystique. Paralelamente, la historia transcurre en un futuro en el que el senador Robert Kelly ha sido asesinado por dicha hermandad. En este futuro, el asesinato del senador ha desencadenado un fuerte sentimiento antimutante en la población. Unos robots llamados Centinelas encarcelan a los mutantes en campos de concentración, al mismo tiempo que se hacen con el control de Estados Unidos. Las demás potencias mundiales, ante la amenaza de los Centinelas, están a punto de lanzar un ataque nuclear contra Norteamérica. La mente de la Kitty Pryde del futuro se transfiere a su yo del presente para advertir a los X-Men del peligro. Los X-Men logran evitar el asesinato y la mente de la Kitty Pryde adulta regresa al futuro. Sin embargo, el futuro distópico sigue existiendo como línea temporal alternativa al futuro real con el nombre de Tierra-811</p>
+        <span>Fuente (en Ingles):<a href="http://marvel.wikia.com/Earth-811" target="_blank">Tierra 811</a></span>
+    </div>
+</div>
+
+
+<!-- Navegador -->
+<div class="row" style="margin-bottom: 10px;">
+    <div class="col-lg-6 col-lg-offset-3">
+        <div class="input-group">
+                            <label for="indexer"></label>
+                            <select id="indexer" class="selectpicker form-control" multiple data-live-search="true" style="border-radius: 0;">
+                                <optgroup label="Uncanny X-Men">
+                                    <option value="1" selected>Uncanny X-Men #141</option>
+                                    <option value="2">Uncanny X-Men #142</option>
+                                </optgroup>
+                                <optgroup label="Wolverine">
+                                    <option value="3">Wolverine Dias del Futuro Pasado #1</option>
+                                    <option value="4">Wolverine Dias del Futuro Pasado #2</option>
+                                    <option value="5">Wolverine Dias del Futuro Pasado #3</option>
+                                </optgroup>
+                                <optgroup label="X-Men Dias del Futuro Presente">
+                                    <option value="6">X-Men Dias del Futuro Presente #1</option>
+                                    <option value="7">X-Men Dias del Futuro Presente #2</option>
+                                    <option value="8">X-Men Dias del Futuro Presente #3</option>
+                                    <option value="9">X-Men Dias del Futuro Presente #4</option>
+                                </optgroup>
+                            </select>
+                            <span class="input-group-btn">
+                                <button id="go" class="btn btn-primary" style="-webkit-border-radius: 0; -moz-border-radius: 0; ">
+                                    <span class="glyphicon glyphicon-th-list"></span>
+                                    Cargar
+                                </button>
+                            </span>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span style="font-weight: bold" id="title"></span>
+                <button type="button" class="close" data-dismiss="modal" >&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe id="comicSrc" src="../../Downloads/leerComics.com.ar/leerComics.com.ar/ModalFrame.html" style="margin-left:20%; width: 350px; height: 350px;"></iframe>
+            </div>
+            <div class="modal-footer">
+                <div class="input-group">
+                   <span class="input-group-btn">
+                        <button class="btn btn-primary btn-sm" disabled><span class="glyphicon glyphicon-arrow-left"></span>Anterior</button>
+                    </span>
+                    <input class="form-control input-sm" value="1">
+                    <span class="input-group-btn">
+                         <button id="sig" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-arrow-right"></span>Siguiente</button>
+                    </span>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!--Divs Capitulos Ocultos -->
+<div id="1" class="row comic">
+    <div class="col-lg-2 col-lg-offset-2">
+        <img src="http://images1.wikia.nocookie.net/__cb20110219194126/marveldatabase/images/thumb/5/59/X-Men_Vol_1_141.jpg/300px-X-Men_Vol_1_141.jpg" class="thumbnail img-responsive">
+    </div>
+    <div class="col-lg-6">
+        <h4><a id="9977594/5758673" data-toggle="modal" data-target="#myModal">Uncanny X-Men Volumen 1 #141</a></h4>
+        <h5>Descripcion:</h5>
+        <p style="text-align: justify">
+            <small>
+                En el siglo 21 , la ciudad de Nueva York se había convertido en un entorno de pesadilla dirigido por Centinelas. Kate Pryde una esclava mutante, es atacada por un grupo de humanos que odian a los mutantes. Ella es rescatada por Wolverine, que ahora es parte de la resistencia canadiense contra los Centinelas. Él ha venido a advertir a Kate de que hay planes para lanzar un asalto nuclear a gran escala en los Estados Unidos si los centinelas no se detienen. Al comprender esto, recibe el último componente de un dispositivo que puede ser la solucion al problema, ella debe ingresarlo de contrabando en el campo de concentración que ha pasado la mayor parte de su vida adulta.
+            </small>
+        </p>
+        <h5>Fuente (en Ingles):</h5>
+        <a href="http://marvel.wikia.com/Uncanny_X-Men_Vol_1_141" target="_blank">Uncanny X-Men Volumen 1 #141</a>
+    </div>
+</div>
+<div id="2" class="row comic">
+    <div class="col-lg-2 col-lg-offset-2">
+        <img src="http://images3.wikia.nocookie.net/__cb20070104005936/marveldatabase/images/thumb/3/33/Uncanny_X-Men_Vol_1_142.jpg/300px-Uncanny_X-Men_Vol_1_142.jpg" class="thumbnail img-responsive">
+    </div>
+    <div class="col-lg-6">
+        <h4><a id="9977594/5883014" data-toggle="modal" data-target="#myModal">Uncanny X-Men Volumen 1 #142</a></h4>
+        <h5>Descripcion:</h5>
+        <p style="text-align: justify">
+            <small>
+                    En el siglo 21 , la ciudad de Nueva York se había convertido en un entorno de pesadilla dirigido por Centinelas. Kate Pryde una esclava mutante, es atacada por un grupo de humanos que odian a los mutantes. Ella es rescatada por Wolverine, que ahora es parte de la resistencia canadiense contra los Centinelas. Él ha venido a advertir a Kate de que hay planes para lanzar un asalto nuclear a gran escala en los Estados Unidos si los centinelas no se detienen. Al comprender esto, recibe el último componente de un dispositivo que puede ser la solucion al problema, ella debe ingresarlo de contrabando en el campo de concentración que ha pasado la mayor parte de su vida adulta.
+            </small>
+        </p>
+        <h5>Fuente (en Ingles):</h5>
+        <a href="http://marvel.wikia.com/Uncanny_X-Men_Vol_1_142" target="_blank">Uncanny X-Men Volumen 1 #142</a>
+    </div>
+</div>
+<div id="3" class="row comic">
+    <div class="col-lg-2 col-lg-offset-2">
+        <img src="http://images4.wikia.nocookie.net/__cb20060802165725/marveldatabase/images/thumb/7/74/Wolverine_Days_of_Future_Past_Vol_1_1.jpg/300px-Wolverine_Days_of_Future_Past_Vol_1_1.jpg" class="thumbnail img-responsive">
+    </div>
+    <div class="col-lg-6">
+        <h4><a id="9977594/5883058" data-toggle="modal" data-target="#myModal">Wolverine Days of the Future Past #1</a></h4>
+        <h5>Descripcion:</h5>
+        <p style="text-align: justify">
+            <small>
+                Descripcion Pendiente.
+            </small>
+        </p>
+        <h5>Fuente (en Ingles):</h5>
+        <a href="http://marvel.wikia.com/Wolverine_Days_of_Future_Past_Vol_1_1" target="_blank">Wolverine Days of the Future Past #1</a>
+    </div>
+</div>
+<div id="4" class="row comic">
+    <div class="col-lg-2 col-lg-offset-2">
+        <img src="http://images2.wikia.nocookie.net/__cb20060802165903/marveldatabase/images/thumb/b/bc/Wolverine_Days_of_Future_Past_Vol_1_2.jpg/300px-Wolverine_Days_of_Future_Past_Vol_1_2.jpg" class="thumbnail img-responsive">
+    </div>
+    <div class="col-lg-6">
+        <h4><a id="9977594/5883044" data-toggle="modal" data-target="#myModal">Wolverine Days of the Future Past #2</a></h4>
+        <h5>Descripcion:</h5>
+        <p style="text-align: justify">
+            <small>
+                Descripcion Pendiente.
+            </small>
+        </p>
+        <h5>Fuente (en Ingles):</h5>
+        <a href="http://marvel.wikia.com/Wolverine_Days_of_Future_Past_Vol_1_2" target="_blank">Wolverine Days of the Future Past #2</a>
+    </div>
+</div>
+<div id="5" class="row comic">
+    <div class="col-lg-2 col-lg-offset-2">
+        <img src="http://images1.wikia.nocookie.net/__cb20060802165952/marveldatabase/images/thumb/4/44/Wolverine_Days_of_Future_Past_Vol_1_3.jpg/300px-Wolverine_Days_of_Future_Past_Vol_1_3.jpg" class="thumbnail img-responsive">
+    </div>
+    <div class="col-lg-6">
+        <h4><a id="9977594/5884433" data-target="#myModal" data-toggle="modal">Wolverine Days of the Future Past #3</a></h4>
+        <h5>Descripcion:</h5>
+        <p style="text-align: justify">
+            <small>
+                Descripcion Pendiente.
+            </small>
+        </p>
+        <h5>Fuente (en Ingles):</h5>
+        <a href="http://marvel.wikia.com/Wolverine_Days_of_Future_Past_Vol_1_3" target="_blank">Wolverine Days of the Future Past #3</a>
+    </div>
+</div>
+<div id="6" class="row comic">
+    <div class="col-lg-2 col-lg-offset-2">
+        <img src="http://images4.wikia.nocookie.net/__cb20090517013125/marveldatabase/images/thumb/6/60/Fantastic_Four_Annual_Vol_1_23.jpg/150px-Fantastic_Four_Annual_Vol_1_23.jpg" class="thumbnail img-responsive">
+    </div>
+    <div class="col-lg-6">
+        <h4><a id="9977594/5884483" data-target="#myModal" data-toggle="modal"> X-Men Days of Future Present #1 (Fantastic Four Annual #23)</a></h4>
+        <h5>Descripcion:</h5>
+        <p style="text-align: justify">
+            <small>
+                Descripcion Pendiente.
+            </small>
+        </p>
+        <h5>Fuente (en Ingles):</h5>
+        <a href="http://marvel.wikia.com/Fantastic_Four_Annual_23" target="_blank">X-Men Days of Future Present #1 (Fantastic Four Annual #23)</a>
+    </div>
+</div>
+<div id="7" class="row comic">
+    <div class="col-lg-2 col-lg-offset-2">
+        <img src="http://images3.wikia.nocookie.net/__cb20070903193917/marveldatabase/images/thumb/e/e3/New_Mutants_Annual_Vol_1_6.jpg/150px-New_Mutants_Annual_Vol_1_6.jpg" class="thumbnail img-responsive">
+    </div>
+    <div class="col-lg-6">
+        <h4><a id="9977594/5884484" data-target="#myModal" data-toggle="modal"> X-Men Days of Future Present #2 (New Mutants Annual #6)</a></h4>
+        <h5>Descripcion:</h5>
+        <p style="text-align: justify">
+            <small>
+                Descripcion Pendiente.
+            </small>
+        </p>
+        <h5>Fuente (en Ingles):</h5>
+        <a href="http://marvel.wikia.com/New_Mutants_Annual_6" target="_blank">X-Men Days of Future Present #2 (New Mutants Annual #6)</a>
+    </div>
+</div>
+<div id="8" class="row comic">
+    <div class="col-lg-2 col-lg-offset-2">
+        <img src="http://images2.wikia.nocookie.net/__cb20060819045732/marveldatabase/images/thumb/7/73/X-Factor_Annual_Vol_1_5.jpg/150px-X-Factor_Annual_Vol_1_5.jpg" class="thumbnail img-responsive">
+    </div>
+    <div class="col-lg-6">
+        <h4><a id="9977594/5884489" data-target="#myModal" data-toggle="modal">X-Men Days of Future Present #3 (X-Factor Annual #5)</a></h4>
+        <h5>Descripcion:</h5>
+        <p style="text-align: justify">
+            <small>
+                Descripcion pendiente.
+            </small>
+        </p>
+        <h5>Fuente (en Ingles):</h5>
+        <a href="http://marvel.wikia.com/X-Factor_Annual_5" target="_blank">X-Men Days of Future Present #3 (X-Factor Annual #5)</a>
+    </div>
+</div>
+<div id="9" class="row comic">
+    <div class="col-lg-2 col-lg-offset-2">
+        <img src="http://images4.wikia.nocookie.net/__cb20060819045705/marveldatabase/images/thumb/6/6b/X-Men_Annual_Vol_1_14.jpg/150px-X-Men_Annual_Vol_1_14.jpg" class="thumbnail img-responsive">
+    </div>
+    <div class="col-lg-6">
+        <h4><a id="9977594/5884492" data-target="#myModal" data-toggle="modal">X-Men Days of Future Present #4 (X-Men Annual #14)</a></h4>
+        <h5>Descripcion:</h5>
+        <p style="text-align: justify">
+            <small>
+                Descripcion pendiente.
+            </small>
+        </p>
+        <h5>Fuente (en Ingles):</h5>
+        <a href="http://marvel.wikia.com/Uncanny_X-Men_Annual_14" target="_blank">X-Men Days of Future Present #4 (X-Men Annual #14)</a>
+    </div>
+</div>
+</div>
+</body>
+</html>

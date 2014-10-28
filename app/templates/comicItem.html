@@ -1,0 +1,27 @@
+<div class="container"  ng-controller="ItemControllerList">
+    <h1>Days of Future Past</h1>
+    <div class="row" ng-repeat="comic in comics | filter:query | orderBy:orderProp">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="panel panel-success">
+                <div class="panel-heading" ng-click="comic.showDetails = ! comic.showDetails">
+                    <strong>{{comic.title}}</strong>
+                </div>
+                <div class="panel-body" ng-show="comic.showDetails" >
+                    <div class="col-lg-2 thumbnail" >
+                        <img ng-src="{{comic.image}}">
+                    </div>
+                    <div class="col-lg-10">
+                        <h5><strong>Descripcion:</strong></h5>
+                        <p style="text-align: justify">
+                            <small>
+                                {{comic.description}}
+                            </small>
+                        </p>
+                        <h5><strong>Fuente (en Ingles):</strong></h5>
+                        <a ng-href="{{comic.source}}">{{comic.title}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
